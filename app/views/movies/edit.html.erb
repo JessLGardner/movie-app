@@ -1,0 +1,14 @@
+<h1>works</h1>
+
+<%= form_for @movie do |f| %>
+  <%= f.label :title %>:
+  <%= f.text_field :title %><br />
+
+  <%= f.label :genre %>:
+  <%= f.text_field :genre %><br />
+
+  <%= f.label :synopsis %>:
+  <%= f.text_area :synopsis %><br />
+
+  <%= f.submit %>
+<% end %>
