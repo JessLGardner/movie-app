@@ -1,5 +1,9 @@
 class MoviesController < ApplicationController
 
+    def index
+        @movies = Movie.all
+    end
+
     def new
         @movie = Movie.new
     end
@@ -23,6 +27,9 @@ class MoviesController < ApplicationController
         redirect_to movie_path(@movie)
     end
 
+    def destroy
+
+    end
 
     private
     def movie_params
