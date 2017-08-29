@@ -1,5 +1,14 @@
 <h1><%= @movie.title %></h1>
+<%= link_to  "home", movies_path %>
 
-<p><%= @movie.title %></p>
-<p><%= @movie.title %></p>
-<p><%= @movie.title %></p>
+
+<p>genre: <%= @movie.genre %></p>
+<p>year: <%= @movie.year %></p>
+<p>synopsis: <%= @movie.synopsis %></p>
+<%= image_tag @movie.picture %>
+<div>
+<%= link_to  "edit", edit_movie_path %>
+<%= form_for @movie, method: :delete do |f| %>
+    <%= f.submit "delete", class: 'delete' %>
+<% end %>
+</div>

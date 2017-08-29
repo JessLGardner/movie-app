@@ -1,3 +1,6 @@
+<h1>new</h1>
+
+
 <%= form_for @movie do |f| %>
   <%= f.label :title %>:
   <%= f.text_field :title %><br />
@@ -5,8 +8,14 @@
   <%= f.label :genre %>:
   <%= f.text_field :genre %><br />
 
+  <%= f.label :year %>:
+  <%= f.text_field :year %><br />
+
   <%= f.label :synopsis %>:
   <%= f.text_area :synopsis %><br />
+
+  <%= f.label :picture %>:
+  <%= f.text_field :picture %><br />
 
   <%= f.submit %>
 <% end %>
