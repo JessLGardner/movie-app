@@ -1,1 +1,22 @@
-user favorites list
+<% if user_signed_in? %>
+  Logged in as <strong><%= current_user.email %></strong>.
+  <span><%= link_to "Logout", destroy_user_session_path, method: :delete %><span> |
+  <span><%= link_to  "Home", movies_path %></span>
+<% else %>
+  <span><%= link_to "Sign up", new_user_registration_path %> </span> |
+  <span><%= link_to "Login", new_user_session_path  %> </span> | 
+  <span><%= link_to  "Home", movies_path %></span> 
+<% end %>
+
+<h1>favorites list</h1>
+<ul>
+  <% @favorites.each do |favorite| %>
+    <li>
+      <p><%= favorite.user_id %><?p>
+    </li>
+  <% end %>
+</ul>
+
+
+
+

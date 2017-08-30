@@ -1,0 +1,7 @@
+ <% if can? :create, favorite %>
+  <td><%= link_to 'Edit', new_favorite_path(favorite) %></td>
+<% end %>
+      
+<% if can? :destroy, favorite %>
+  <td><%= link_to 'Destroy', favorite, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+<% end %>

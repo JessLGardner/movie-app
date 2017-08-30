@@ -1,14 +1,29 @@
+
+<% if user_signed_in? %>
+  Logged in as <strong><%= current_user.email %></strong>.
+  <span><%= link_to "Logout", destroy_user_session_path, method: :delete %><span> |
+  <span><%= link_to "Favorites", favorites_path  %></span> |
+  <span><%= link_to  "Home", movies_path %></span> 
+<% else %>
+  <span><%= link_to "Sign up", new_user_registration_path %> </span> |
+  <span><%= link_to "Login", new_user_session_path  %> </span> | 
+  <span><%= link_to "Favorites", favorites_path  %></span> |
+  <span><%= link_to  "Home", movies_path %></span> 
+<% end %>
+
+<div class="movie">
 <h1><%= @movie.title %></h1>
-<%= link_to  "home", movies_path %>
 
 <p>genre: <%= @movie.genre %></p>
 <p>year: <%= @movie.year %></p>
 <p>synopsis: <%= @movie.synopsis %></p>
-<%= image_tag @movie.picture %>
+<%= image_tag @movie.picture %></br>
 
 <div>
-    <%= link_to  "edit", edit_movie_path %>
-    <%= form_for @movie, method: :delete do |f| %>
+    <div> <%= button_to @favorite, add_favorite_path(@favorite), method: :post%></div>
+    <div> <%= link_to  "edit", edit_movie_path %> </div>
+    <div><%= form_for @movie, method: :delete do |f| %>
         <%= f.submit "delete", class: 'delete' %>
-    <% end %>
+    <% end %></div>
+</div>
 </div>

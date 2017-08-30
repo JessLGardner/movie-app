@@ -1,17 +1,16 @@
-<h1>Movie List</h1>
+
 <% if user_signed_in? %>
   Logged in as <strong><%= current_user.email %></strong>.
-  <%= link_to "Logout", destroy_user_session_path, method: :delete %>
-  <%= link_to "Favorites", favorites_path  %>
+  <span><%= link_to "Logout", destroy_user_session_path, method: :delete %><span> |
+  <span><%= link_to "Favorites", favorites_path  %></span>
 <% else %>
-  <%= link_to "Sign up", new_user_registration_path %> |
-  <%= link_to "Login", new_user_session_path  %> | 
-  <%= link_to "Favorites", favorites_path  %>
+  <span><%= link_to "Sign up", new_user_registration_path %> </span> |
+  <span><%= link_to "Login", new_user_session_path  %> </span> | 
+  <span><%= link_to "Favorites", favorites_path  %></span> 
 <% end %>
-<div>
-<%= link_to  "add new movie", new_movie_path %>
-</div>
 
+<div class="movie">
+<h1>Movie List</h1>
 <ul>
   <% @movies.each do |movie| %>
     <li>
@@ -20,4 +19,8 @@
   <% end %>
 </ul>
 
+<div>
+<%= link_to  "add new movie", new_movie_path %>
+</div>
+</div>
 
